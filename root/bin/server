@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var clusterMaster = require('cluster-master'),
+    path          = require('path'),
+    nconf         = require('nconf');
+
+nconf.argv({
+  c: {
+    alias: 'config',
+    describe: 'configuration file location',
+    demand: true
+  }
+});
+
+var worker = path.resolve(__dirname, 'worker');
+
+clusterMaster({
+  exec: worker,
+  args: [ '--config', nconf.get('config') ]
+});

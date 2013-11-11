@@ -1,0 +1,28 @@
+{
+  "port": 8080,
+  "logging" : {
+    "file" : "/var/log/{%= name %}/{%= name %}.log",
+    "console" : false,
+    "level" : "error"
+  },
+  "monitoring" : {
+    "subscribers": {
+      "console" : ["ops", "request", "log", "error"],
+      "/var/log/{%= name %}/{%= name %}.log" : ["ops", "request", "log", "error"]
+    }
+  },
+  "aws": {
+    "accessKeyId" : "CHANGEME",
+    "secretAccessKey" : "CHANGEME",
+    "region": "us-east-1"
+  },
+  "registry": {
+    "hostname": "registry.wantworthy.com",
+    "port": 9095
+  },
+  "api": {
+    "url": "https://api.wantworthy.com"
+  },
+  "timeout" : 3500,
+  "metrics" : true
+}

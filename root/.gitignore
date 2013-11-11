@@ -1,0 +1,13 @@
+*.node
+build/
+Debug/
+Release/
+npm-debug.log
+tmp
+support/data/
+.DS_Store
+*/.DS_Store
+*/*/.DS_Store
+
+!node_modules/lodash/build/
+!node_modules/**/*/lodash/build/

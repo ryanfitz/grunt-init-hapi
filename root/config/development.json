@@ -1,0 +1,28 @@
+{
+  "port": {%= port %},
+  "logging" : {
+    "file" : "tmp/development.log",
+    "console" : true,
+    "level" : "debug"
+  },
+  "monitoring" : {
+    "subscribers": {
+      "console" : ["ops", "request", "log", "error"],
+      "tmp/development.log" : ["ops", "request", "log", "error"]
+    }
+  },
+  "aws": {
+    "accessKeyId" : "CHANGEME",
+    "secretAccessKey" : "CHANGEME",
+    "region": "us-east-1"
+  },
+  "registry": {
+    "hostname": "127.0.0.1",
+    "port": 9095
+  },
+  "api": {
+    "url": "http://devapi.wantworthy.com:9000"
+  },
+  "timeout" : 3500,
+  "metrics" : false
+}

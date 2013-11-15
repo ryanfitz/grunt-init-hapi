@@ -1,6 +1,6 @@
-# grunt-init-webservice
+# grunt-init-hapi
 
-> Create a webservice using hapi with [grunt-init][].
+> Create a hapi based webservice with [grunt-init][].
 
 [grunt-init]: http://gruntjs.com/project-scaffolding
 

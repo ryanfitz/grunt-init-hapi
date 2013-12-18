@@ -1,4 +1,4 @@
-exports.description = 'Create a wantworthy webserivce';
+exports.description = 'Create a hapi based webserivce';
 
 exports.template = function(grunt, init, done) {
 

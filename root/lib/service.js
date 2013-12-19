@@ -52,6 +52,7 @@ module.exports = function(config) {
     logging               : ['value'   , config.get('logging')],
     apiURL                : ['value'   , config.get('api:url')],
     credentials           : ['value'   , config.get('aws')],
+    dynamodbConfig        : ['value'   , config.get('dynamodb')],
     metricsEnabled        : ['value'   , config.get('metrics')],
     subscribers           : ['value'   , config.get('monitoring:subscribers')],
     accounts              : ['value'   , resources.Account],
@@ -61,7 +62,7 @@ module.exports = function(config) {
     monitoring            : ['factory' , initializers.Monitoring],
     metrics               : ['factory' , initializers.Metrics],
     AWS                   : ['factory' , initializers.Aws],
-    dynamodb              : ['factory' , initializers.dynamodb],
+    dynamodb              : ['factory' , initializers.Dynamodb],
     mainController        : ['factory' , controllers.Maincontroller],
     healthCheckController : ['factory' , controllers.Healthcheckcontroller],
     routes                : ['factory' , routes],
@@ -70,5 +71,8 @@ module.exports = function(config) {
 
   var injector = new di.Injector(modules);
 
-  return injector.get('app');
+  var app = injector.get('app');
+  app.injector = injector;
+
+  return app;
 };

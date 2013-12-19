@@ -16,6 +16,9 @@
     "secretAccessKey" : "CHANGEME",
     "region": "us-east-1"
   },
+  "dynamodb" : {
+    "endpoint" : "http://localhost:8000"
+  },
   "api": {
     "url": "http://api.localhost.com:9000"
   },

@@ -1,0 +1,22 @@
+#!/usr/bin/env node
+
+'use strict';
+
+var service = require('../index'),
+    nconf   = require('nconf');
+
+nconf.argv({
+  c: {
+    alias: 'config',
+    describe: 'configuration file location',
+    demand: true
+  }
+});
+
+var filePath = nconf.get('config');
+nconf.file(filePath);
+
+var repl = require("repl");
+var context = repl.start("> ").context;
+
+context.app = service(nconf)

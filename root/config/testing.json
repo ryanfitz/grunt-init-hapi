@@ -16,12 +16,8 @@
     "secretAccessKey" : "CHANGEME",
     "region": "us-east-1"
   },
-  "registry": {
-    "hostname": "ec2-75-101-168-24.compute-1.amazonaws.com",
-    "port": 9095
-  },
   "api": {
-    "url": "http://betaapi.wantworthy.com"
+    "url": "http://api.localhost.com"
   },
   "timeout" : 3500,
   "metrics" : false

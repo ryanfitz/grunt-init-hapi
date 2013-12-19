@@ -16,12 +16,8 @@
     "secretAccessKey" : "CHANGEME",
     "region": "us-east-1"
   },
-  "registry": {
-    "hostname": "registry.wantworthy.com",
-    "port": 9095
-  },
   "api": {
-    "url": "https://api.wantworthy.com"
+    "url": "http://api.localhost.com"
   },
   "timeout" : 3500,
   "metrics" : true

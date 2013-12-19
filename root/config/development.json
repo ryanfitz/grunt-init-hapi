@@ -16,12 +16,8 @@
     "secretAccessKey" : "CHANGEME",
     "region": "us-east-1"
   },
-  "registry": {
-    "hostname": "127.0.0.1",
-    "port": 9095
-  },
   "api": {
-    "url": "http://devapi.wantworthy.com:9000"
+    "url": "http://api.localhost.com:9000"
   },
   "timeout" : 3500,
   "metrics" : false

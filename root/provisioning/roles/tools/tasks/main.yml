@@ -1,0 +1,17 @@
+---
+
+- name: download dynamodb local
+  get_url: url={{ dynamo_local_url }} dest={{ dynamo_local_dest }}
+  tags: tools
+
+- name: Extract dynamdb local tarball
+  command: tar xf {{ dynamo_local_dest }} -C /opt/
+  tags: tools
+
+- name: install dynamodb upstart script
+  copy: src=dynamodb.conf dest=/etc/init/dynamodb.conf owner=root group=root mode=0644
+  tags: tools
+
+- name: start dynamodb service
+  service: name=dynamodb state=started enabled=yes
+  tags: tools

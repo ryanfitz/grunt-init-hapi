@@ -1,0 +1,27 @@
+---
+
+- name: install pycurl
+  apt: pkg=python-pycurl update-cache=yes
+  tags: common
+
+- name: install aptitude
+  apt: pkg=aptitude
+  tags: common
+
+- name: setup nodejs ppa
+  apt_repository: repo='ppa:chris-lea/node.js' update_cache=yes
+  tags: common
+
+- name: Install Packages
+  apt: >
+    pkg={{ item }}
+    state=latest
+    update-cache=yes
+    force=yes
+  with_items:
+    - nodejs
+  tags: common
+
+- name: install grunt
+  npm: name=grunt-cli global=yes state=latest
+  tags: common

@@ -8,6 +8,8 @@ support/data/
 .DS_Store
 */.DS_Store
 */*/.DS_Store
+.vagrant/
+vagrant_ansible_inventory_default
 
 !node_modules/lodash/build/
 !node_modules/**/*/lodash/build/

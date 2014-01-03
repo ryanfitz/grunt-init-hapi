@@ -33,20 +33,21 @@ module.exports = function(grunt) {
       }
     },
 
-    simplemocha: {
-      options: {
-        globals: ['should'],
-        timeout: 3000,
-        ignoreLeaks: false,
-        ui: 'bdd',
-        reporter: 'list'
-      },
-
-      all: { src: ['<%= jshint.test.src %>'] }
+    mochaTest: {
+      test: {
+        options: {
+          globals: ['should'],
+          timeout: 3000,
+          ignoreLeaks: false,
+          ui: 'bdd',
+          reporter: 'list'
+        },
+        src: ['<%= jshint.test.src %>']
+      }
     },
 
     nodemon: {
-      dev: {
+      server: {
         options: {
           file: 'bin/server',
           args: ['-c', 'config/development.json'],
@@ -57,6 +58,16 @@ module.exports = function(grunt) {
           cwd: __dirname
         }
       }
+    },
+
+    concurrent: {
+      dev: {
+        tasks: ['watch', 'nodemon:server'],
+        options: {
+          limit: 4,
+          logConcurrentOutput: true
+        }
+      }
     }
 
   });
@@ -64,11 +75,12 @@ module.exports = function(grunt) {
     // These plugins provide necessary tasks.
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
-  grunt.loadNpmTasks('grunt-simple-mocha');
+  grunt.loadNpmTasks('grunt-mocha-test');
+  grunt.loadNpmTasks('grunt-concurrent');
   grunt.loadNpmTasks('grunt-nodemon');
 
-  grunt.registerTask('test', ['simplemocha']);
-  grunt.registerTask('server', ['nodemon:dev']);
+  grunt.registerTask('test', ['mochaTest']);
+  grunt.registerTask('server', ['concurrent:dev']);
     // Default task.
-  grunt.registerTask('default', ['jshint', 'simplemocha']);
+  grunt.registerTask('default', ['jshint', 'test']);
 };

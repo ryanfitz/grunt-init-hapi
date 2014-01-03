@@ -1,0 +1,20 @@
+---
+
+- hosts: localhost
+  connection: local
+  gather_facts: false
+  sudo: no
+
+  tasks:
+  - name: launch cloudformation stack
+    cloudformation: >
+      stack_name="{%= name %}-dev" state=present
+      region=us-east-1 disable_rollback=false
+      template=files/cloudformation.json
+    register: stack
+    tags: cloudformation
+
+  - name: show stack outputs
+    debug: msg="{%= name %} stack outputs {{stack.stack_outputs}}"
+
+  - template: src=files/config.json.j2 dest=../config/development.json mode=0644

@@ -1,0 +1,29 @@
+{
+
+  "port": {%= port %},
+  "logging" : {
+    "file" : "tmp/development.log",
+    "console" : true,
+    "level" : "debug"
+  },
+  "monitoring" : {
+    "subscribers": {
+      "console" : ["ops", "request", "log", "error"],
+      "tmp/development.log" : ["ops", "request", "log", "error"]
+    }
+  },
+  "aws": {
+    "accessKeyId" : "{{ stack.stack_outputs.AccessKeyId }}",
+    "secretAccessKey" : "{{ stack.stack_outputs.SecretAccessKey }}",
+    "region": "us-east-1"
+  },
+  "dynamodb" : {
+    "tables" : {
+    }
+  },
+  "api": {
+    "url": "http://localhost:{%= port %}"
+  },
+  "timeout" : 3500,
+  "metrics" : false
+}

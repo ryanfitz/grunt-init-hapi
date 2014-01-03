@@ -1,0 +1,42 @@
+{
+  "AWSTemplateFormatVersion" : "2010-09-09",
+
+  "Description" : "AWS CloudFormation template for deploying {%= name %}",
+
+  "Resources" : {
+    "{%= name %}User" : {
+      "Type" : "AWS::IAM::User"
+    },
+    "{%= name %}AccessKey" : {
+      "Type" : "AWS::IAM::AccessKey",
+      "Properties" : {
+        "UserName" : { "Ref" : "{%= name %}User" }
+      }
+    },
+    "{%= name %}DynamoDBPolicy" : {
+      "Type" : "AWS::IAM::Policy",
+      "Properties" : {
+        "PolicyName" : "{%= name %}DynamoDBPolicy",
+        "PolicyDocument" : {
+          "Statement": [ {
+            "Effect"   : "Allow",
+            "Action"   : [ "dynamodb:*" ],
+            "Resource" : "*" } ]
+        },
+        "Users" : [ { "Ref" : "{%= name %}User" } ]
+      }
+    }
+  },
+  "Outputs" : {
+    "AccessKeyId" : {
+      "Description" : "Access key for {%= name %}",
+      "Value" : { "Ref" : "{%= name %}AccessKey" }
+    },
+    "SecretAccessKey" : {
+      "Description" : "Secret Access key for {%= name %}",
+      "Value" : {
+        "Fn::GetAtt" : [ "{%= name %}AccessKey", "SecretAccessKey" ]
+      }
+    }
+  }
+}

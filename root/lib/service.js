@@ -5,6 +5,8 @@ var Hapi    = require('hapi'),
     di      = require('di'),
     routes  = require('./routes');
 
+Hapi.joi.version('v2');
+
 var initializers = {},
     controllers = {},
     resources = {};

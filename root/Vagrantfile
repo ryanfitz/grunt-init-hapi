@@ -22,7 +22,12 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   config.vm.provision "ansible" do |ansible|
-    ansible.playbook = "provisioning/site.yml"
+    ansible.playbook = "provisioning/cloudformation.yml"
+    ansible.inventory_path = "provisioning/files/hosts"
+  end
+
+  config.vm.provision "ansible" do |ansible|
+    ansible.playbook = "provisioning/vagrant.yml"
     ansible.sudo = true
   end
 

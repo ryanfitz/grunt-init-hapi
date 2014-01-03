@@ -16,6 +16,8 @@ nconf.argv({
 var filePath = nconf.get('config');
 nconf.file(filePath);
 
+nconf.set('monitoring:subscribers:console', []);
+
 var repl = require("repl");
 var context = repl.start("> ").context;
 

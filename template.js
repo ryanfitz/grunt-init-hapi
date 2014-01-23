@@ -22,16 +22,16 @@ exports.template = function(grunt, init, done) {
             peerDependencies: {
             },
             dependencies: {
-              'hapi'           : '~1.20.0',
+              'hapi'           : '~2.1.0',
               'lodash'         : '~2.4.0',
-              'async'          : '~0.2.9',
-              'good'           : '~0.12.0',
+              'async'          : '~0.2.10',
+              'good'           : '~1.0.0',
               'cluster-master' : '~0.2.0',
-              'hoek'           : '~1.3.0',
+              'hoek'           : '~1.4.0',
               'nconf'          : '~0.6.0',
               'winston'        : '~0.7.0',
-              'aws-sdk'        : '~2.0.0-rc4',
-              'cloudstats'     : '0.0.1',
+              'aws-sdk'        : '~2.0.0-rc8',
+              'cloudstats'     : '0.1.0',
               'convert-params' : '~0.1.0',
               'di'             : '~0.0.1'
             },
@@ -44,7 +44,8 @@ exports.template = function(grunt, init, done) {
               'grunt-mocha-test'     : '~0.8.0',
               'grunt-contrib-watch'  : '~0.5.0',
               'grunt-concurrent'     : '~0.4.0',
-              'grunt-nodemon'        : '~0.1.0'
+              'grunt-nodemon'        : '~0.1.0',
+              'grunt-bump'           : '~0.0.13'
             },
             npm_test: 'grunt test'
         });

@@ -25,3 +25,4 @@ release:
 install:
 	install -d $(BIN) $(DESTDIR)/opt/services/{%= name %}
 	cp -r ./bin ./config ./node_modules ./lib ./package.json index.js $(DESTDIR)/opt/services/{%= name %}
+	chmod +x $(DESTDIR)/opt/services/{%= name %}/bin/*

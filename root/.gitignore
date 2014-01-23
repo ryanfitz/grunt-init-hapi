@@ -1,5 +1,4 @@
 *.node
-build/
 Debug/
 Release/
 npm-debug.log
@@ -11,5 +10,6 @@ support/data/
 .vagrant/
 vagrant_ansible_inventory_default
 
+node_modules/good/node_modules/memwatch/build/
 !node_modules/lodash/build/
 !node_modules/**/*/lodash/build/

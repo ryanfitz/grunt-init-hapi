@@ -1,15 +1,15 @@
 {
 
-  "port": {%= port %},
+  "port": {{ http_port }},
   "logging" : {
-    "file" : "tmp/development.log",
+    "file" : "{{ log_file }}",
     "console" : true,
     "level" : "debug"
   },
   "monitoring" : {
     "subscribers": {
       "console" : ["ops", "request", "log", "error"],
-      "tmp/development.log" : ["ops", "request", "log", "error"]
+      "{{ log_file }}" : ["ops", "request", "log", "error"]
     }
   },
   "aws": {
@@ -22,8 +22,8 @@
     }
   },
   "api": {
-    "url": "http://localhost:{%= port %}"
+    "url": "{{ api.url }}"
   },
   "timeout" : 3500,
-  "metrics" : false
+  "metrics" : {{ metrics }}
 }

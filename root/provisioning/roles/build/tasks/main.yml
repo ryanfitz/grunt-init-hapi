@@ -1,0 +1,9 @@
+---
+
+- name: make project
+  command: make chdir={{ chdir }}
+  tags: build
+
+- name: make install
+  command: make install chdir={{ chdir }}
+  tags: build

@@ -1,0 +1,12 @@
+---
+
+- name: provision database
+  command: bin/server -c config/{{ config_file }} -provision chdir={{ chdir }}
+  ignore_errors: yes
+  tags: service
+
+- template: src=service.conf.j2 dest=/etc/init/{%= name %}.conf mode=0644
+  when: environment == "production"
+
+- service: name={%= name %} enabled=yes
+  when: environment == "production"

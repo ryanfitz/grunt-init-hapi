@@ -5,3 +5,7 @@
    - role: common
    - role: java
    - role: tools
+   - { role: service, config_file: 'development.json', chdir: '/vagrant' }
+
+  vars_files:
+    - vars/dev.yml

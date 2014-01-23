@@ -1,0 +1,4 @@
+---
+
+- name: create configuration
+  template: src=config.json.j2 dest={{ config_file }} mode=0644

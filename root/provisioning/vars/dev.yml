@@ -1,0 +1,9 @@
+environment: development
+
+http_port: {%= port %}
+metrics: "false"
+log_file : tmp/development.log
+
+api:
+  url: http://api.localhost.com
+

@@ -5,7 +5,7 @@
   gather_facts: false
   sudo: no
 
-  tasks:
+  pre_tasks:
   - name: launch cloudformation stack
     cloudformation: >
       stack_name="{%= name %}-dev" state=present
@@ -14,7 +14,8 @@
     register: stack
     tags: cloudformation
 
-  - name: show stack outputs
-    debug: msg="{%= name %} stack outputs {{stack.stack_outputs}}"
+  roles:
+  - { role: config, config_file: "../config/development.json" }
 
-  - template: src=files/config.json.j2 dest=../config/development.json mode=0644
+  vars_files:
+    - vars/dev.yml

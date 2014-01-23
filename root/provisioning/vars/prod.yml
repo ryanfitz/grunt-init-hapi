@@ -1,0 +1,8 @@
+environment: production
+
+http_port: 80
+metrics: "true"
+log_file : /var/log/{%= name %}/{%= name %}.log
+
+api:
+  url: http://api.example.com

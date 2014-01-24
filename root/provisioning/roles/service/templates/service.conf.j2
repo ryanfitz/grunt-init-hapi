@@ -1,7 +1,7 @@
 author "Ryan Fitzgerald <ryan@nifti.com>"
 
 pre-start script
-  mkdir -p /var/log/photo-service
+  mkdir -p /var/log/{%= name %}
 end script
 
 start on (local-filesystems and net-device-up IFACE=eth0)
@@ -9,10 +9,10 @@ stop on runlevel [016]
 
 respawn
 
-chdir /opt/services/photo-service
+chdir /opt/services/{%= name %}
 
 limit nofile 65536 65536
 
 script
-  exec bin/server -c config/{{ config_file }} >> /var/log/photo-service/service.log 2>&1
+  exec bin/server -c config/{{ config_file }} >> /var/log/{%= name %}/service.log 2>&1
 end script

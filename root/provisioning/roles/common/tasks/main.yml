@@ -19,6 +19,7 @@
     update-cache=yes
     force=yes
   with_items:
+    - build-essential
     - nodejs
   tags: common
 

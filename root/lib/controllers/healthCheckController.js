@@ -13,18 +13,14 @@ internals.index = {
 
   handler: function () {
 
-    return function (request) {
+    return function (request, reply) {
       internals.checkHealth(function (err) {
-        var result;
-
         if(err) {
-          result = Hapi.error.internal('healh check failed', err);
+          return reply(Hapi.error.internal('healh check failed', err));
         } else {
-          result = new Hapi.response.Empty();
-          result.code(200);
+          return reply('OK').type('text/plain').code(200);
         }
 
-        request.reply(result);
       });
     };
   }

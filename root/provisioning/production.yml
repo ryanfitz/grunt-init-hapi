@@ -4,6 +4,6 @@
   roles:
    - role: common
    - { role: build, chdir: '/tmp/{%= name %}' }
-   - { role: service, config_file: 'production.json', chdir: '/opt/services/{%= name %}' }
+   - { role: service, config_file: 'production.json', chdir: '/opt/services/{%= name %}', env: 'production' }
   vars_files:
     - vars/prod.yml

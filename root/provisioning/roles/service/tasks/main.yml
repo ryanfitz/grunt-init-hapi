@@ -6,7 +6,7 @@
   tags: service
 
 - template: src=service.conf.j2 dest=/etc/init/{%= name %}.conf mode=0644
-  when: environment == "production"
+  when: env == 'production'
 
 - service: name={%= name %} enabled=yes
-  when: environment == "production"
+  when: env == 'production'

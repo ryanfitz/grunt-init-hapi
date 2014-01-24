@@ -1,4 +1,4 @@
-environment: development
+env: development
 
 http_port: {%= port %}
 metrics: "false"

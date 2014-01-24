@@ -1,4 +1,4 @@
-environment: production
+env: production
 
 http_port: 80
 metrics: "true"
